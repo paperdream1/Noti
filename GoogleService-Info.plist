@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>800886822129-8rhcitsrid1um2t6ckpict09lt15vrvh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.800886822129-8rhcitsrid1um2t6ckpict09lt15vrvh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAYyB7kRnuTDYuQKWgpw6h-IZx9uSpRu-c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>800886822129</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>mola.Noti</string>
+	<key>PROJECT_ID</key>
+	<string>noti-870f5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>noti-870f5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:800886822129:ios:d3de5bd2dcfeca88</string>
+	<key>DATABASE_URL</key>
+	<string>https://noti-870f5.firebaseio.com</string>
+</dict>
+</plist>
