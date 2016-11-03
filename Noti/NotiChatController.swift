@@ -22,6 +22,8 @@ class NotiChatController: JSQMessagesViewController{
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
+    var selectedCellIndexPath:IndexPath?
+    
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
@@ -64,6 +66,14 @@ class NotiChatController: JSQMessagesViewController{
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
+        var toVC = storyboard?.instantiateViewController(withIdentifier: "ParsedMessageController") as! ParsedMessageController
+        
+        toVC.originalMessage = self.messages[indexPath.row].text
+        
+        self.navigationController?.pushViewController(toVC, animated: true)
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {

@@ -10,6 +10,7 @@
 		3607406E0BC819B469C2AD97 /* Pods_Noti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD555A283EA585E27402A6 /* Pods_Noti.framework */; };
 		91715CB51DC9B82F0081047C /* MyNotiRoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */; };
 		91715CB71DC9BB590081047C /* NotiChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB61DC9BB590081047C /* NotiChatController.swift */; };
+		91715CB91DCB28FC0081047C /* ParsedMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB81DCB28FC0081047C /* ParsedMessageViewController.swift */; };
 		91EB29941DB76E6700D3E1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB29931DB76E6700D3E1F8 /* AppDelegate.swift */; };
 		91EB29961DB76E6700D3E1F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB29951DB76E6700D3E1F8 /* ViewController.swift */; };
 		91EB29991DB76E6700D3E1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EB29971DB76E6700D3E1F8 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		8192B598C20EA3B8AA0DC260 /* Pods-NotiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotiTests/Pods-NotiTests.release.xcconfig"; sourceTree = "<group>"; };
 		91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNotiRoomController.swift; sourceTree = "<group>"; };
 		91715CB61DC9BB590081047C /* NotiChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotiChatController.swift; sourceTree = "<group>"; };
+		91715CB81DCB28FC0081047C /* ParsedMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedMessageViewController.swift; sourceTree = "<group>"; };
 		91EB29901DB76E6700D3E1F8 /* Noti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EB29931DB76E6700D3E1F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91EB29951DB76E6700D3E1F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				91EB29C71DB7843000D3E1F8 /* GoogleService-Info.plist */,
 				91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */,
 				91715CB61DC9BB590081047C /* NotiChatController.swift */,
+				91715CB81DCB28FC0081047C /* ParsedMessageViewController.swift */,
 			);
 			path = Noti;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91715CB91DCB28FC0081047C /* ParsedMessageViewController.swift in Sources */,
 				91EB29961DB76E6700D3E1F8 /* ViewController.swift in Sources */,
 				91715CB51DC9B82F0081047C /* MyNotiRoomController.swift in Sources */,
 				91EB29941DB76E6700D3E1F8 /* AppDelegate.swift in Sources */,
