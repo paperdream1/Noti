@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     //var ref: Firebase?
+    @IBOutlet var IDTextField: UITextField!
+    @IBOutlet var PWTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

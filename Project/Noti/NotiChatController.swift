@@ -14,9 +14,11 @@ import Firebase
 class NotiChatController: JSQMessagesViewController{
     
     var messages = [JSQMessage]()
+    var channel : Channel?
     
-    private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
-    private lazy var messageRef: FIRDatabaseReference = FIRDatabase.database().reference().child("messages")
+    var channelRef: FIRDatabaseReference!
+    var messageRef: FIRDatabaseReference!
+    
     private var newMessageRefHandle: FIRDatabaseHandle?
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
@@ -27,6 +29,7 @@ class NotiChatController: JSQMessagesViewController{
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        
     }
     
     private func setupIncomingBubble() -> JSQMessagesBubbleImage {
@@ -37,8 +40,11 @@ class NotiChatController: JSQMessagesViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.channelRef = FIRDatabase.database().reference().child("channels").child((channel?.id)!)
+        self.messageRef = self.channelRef.child("messages")
+        
         self.senderId = FIRAuth.auth()?.currentUser?.uid
-        self.senderDisplayName = "hello fuckers"
+        self.senderDisplayName = self.channel?.name
         
         observeMessages()
     }
