@@ -55,10 +55,11 @@ class MyNotiRoomController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! MyNotiRoomCell
+        
         
         if(segue.identifier == "MyNotiRoomCellSegue")
         {
+            let cell = sender as! MyNotiRoomCell
             let toVC = segue.destination as! NotiChatController
             
             toVC.channel = self.rooms[cell.index!]
@@ -80,6 +81,28 @@ class MyNotiRoomController: UITableViewController {
             }
         })
     }
+    
+    @IBAction func addChannel(segue:UIStoryboardSegue){
+    
+        var channelName = (segue.source as! ChannelAddController).channelTextField.text! as String
+        
+        let newChannelRef = channelRef.childByAutoId()
+        let channelItem = [
+            "name": channelName
+        ]
+        newChannelRef.setValue(channelItem)
+        
+        self.rooms.removeAll()
+        observeChannels()
+        
+        self.tableView.reloadData()
+
+    }
+    
+    
+    
+    
+    
 }
 
 class MyNotiRoomCell: UITableViewCell {

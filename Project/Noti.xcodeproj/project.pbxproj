@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3607406E0BC819B469C2AD97 /* Pods_Noti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD555A283EA585E27402A6 /* Pods_Noti.framework */; };
+		8E20D6281DD1ACAC00E0DBE7 /* ChannelAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E20D6271DD1ACAC00E0DBE7 /* ChannelAddController.swift */; };
 		9156C0F31DD191EC0068EDD5 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156C0F21DD191EC0068EDD5 /* Channel.swift */; };
 		91715CB51DC9B82F0081047C /* MyNotiRoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */; };
 		91715CB71DC9BB590081047C /* NotiChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB61DC9BB590081047C /* NotiChatController.swift */; };
 		91715CB91DCB28FC0081047C /* ParsedMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB81DCB28FC0081047C /* ParsedMessageViewController.swift */; };
 		91EB29941DB76E6700D3E1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB29931DB76E6700D3E1F8 /* AppDelegate.swift */; };
 		91EB29961DB76E6700D3E1F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB29951DB76E6700D3E1F8 /* ViewController.swift */; };
-		91EB29991DB76E6700D3E1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EB29971DB76E6700D3E1F8 /* Main.storyboard */; };
+		91EB29991DB76E6700D3E1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EB29971DB76E6700D3E1F8 /* Main.storyboard */; settings = {ASSET_TAGS = (addChannel, ); }; };
 		91EB299B1DB76E6700D3E1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EB299A1DB76E6700D3E1F8 /* Assets.xcassets */; };
 		91EB299E1DB76E6700D3E1F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91EB299C1DB76E6700D3E1F8 /* LaunchScreen.storyboard */; };
 		91EB29A91DB76E6700D3E1F8 /* NotiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB29A81DB76E6700D3E1F8 /* NotiTests.swift */; };
@@ -48,6 +49,7 @@
 		4F842B39EEB54A895092C5D6 /* Pods_NotiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF6AF2C9AF3C841E877E609 /* Pods-Noti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Noti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Noti/Pods-Noti.debug.xcconfig"; sourceTree = "<group>"; };
 		8192B598C20EA3B8AA0DC260 /* Pods-NotiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotiTests/Pods-NotiTests.release.xcconfig"; sourceTree = "<group>"; };
+		8E20D6271DD1ACAC00E0DBE7 /* ChannelAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelAddController.swift; sourceTree = "<group>"; };
 		9156C0F21DD191EC0068EDD5 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNotiRoomController.swift; sourceTree = "<group>"; };
 		91715CB61DC9BB590081047C /* NotiChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotiChatController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */,
 				91715CB61DC9BB590081047C /* NotiChatController.swift */,
 				91715CB81DCB28FC0081047C /* ParsedMessageViewController.swift */,
+				8E20D6271DD1ACAC00E0DBE7 /* ChannelAddController.swift */,
 			);
 			path = Noti;
 			sourceTree = "<group>";
@@ -269,6 +272,9 @@
 		91EB29881DB76E6700D3E1F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					addChannel,
+				);
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "이채원";
@@ -486,6 +492,7 @@
 			files = (
 				91715CB91DCB28FC0081047C /* ParsedMessageViewController.swift in Sources */,
 				9156C0F31DD191EC0068EDD5 /* Channel.swift in Sources */,
+				8E20D6281DD1ACAC00E0DBE7 /* ChannelAddController.swift in Sources */,
 				91EB29961DB76E6700D3E1F8 /* ViewController.swift in Sources */,
 				91715CB51DC9B82F0081047C /* MyNotiRoomController.swift in Sources */,
 				91EB29941DB76E6700D3E1F8 /* AppDelegate.swift in Sources */,
