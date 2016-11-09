@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func login(_ sender: AnyObject) {
         
+        /*
         FIRAuth.auth()?.signInAnonymously(completion:{ (user, error) in // 2
             if let err = error { // 3
                 //print(err.localizedDescription)
@@ -39,8 +40,20 @@ class LoginViewController: UIViewController {
             }
             
             //self.performSegue(withIdentifier: "LoginToChat", sender: nil) // 4
+        })*/
+        
+        FIRAuth.auth()?.signIn(withEmail: IDTextField.text!, password: PWTextField.text!, completion: {(user,error) in
+            
+            if let err = error { // 3
+                //print(err.localizedDescription)
+                print("***********************")
+                return
+            }
+            
+            let toVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNotiRoomNavigationController")
+            
+            self.present(toVC!, animated: true, completion: nil)
         })
     }
-
 }
 
