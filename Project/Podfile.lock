@@ -51,6 +51,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Reductio (1.1.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - JSQMessagesViewController
+  - Reductio
 
 SPEC CHECKSUMS:
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
@@ -76,7 +78,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Reductio: d011ace557b2dca65a3a2eecbd65d3e10fa75342
 
-PODFILE CHECKSUM: 900188def3573157890d7a0f2006b66a4dac6f14
+PODFILE CHECKSUM: ffae6e7f91a24aa048fc69b37f7bdf9eaad5f990
 
 COCOAPODS: 1.1.0.rc.2

@@ -10,6 +10,7 @@ target 'Noti' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'JSQMessagesViewController'
+  pod 'Reductio'
 
   # Pods for Noti
 

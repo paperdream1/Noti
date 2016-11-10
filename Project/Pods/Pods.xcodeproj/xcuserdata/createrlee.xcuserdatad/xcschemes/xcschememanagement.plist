@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Reductio.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -47,12 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A5E12E55B51AF10004F498BC40B993B</key>
+		<key>AD1FF081AC992360ABECFC26287865A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD1FF081AC992360ABECFC26287865A5</key>
+		<key>E3BFA8C53DBEC3A130D039D7F5962235</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F235F91D0B43BC515B8934BD42982B3E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
