@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            let toVC = self.storyboard?.instantiateViewController(withIdentifier: "MyNotiRoomNavigationController")
+            let toVC = self.storyboard?.instantiateViewController(withIdentifier: "NotiTabbarController")
             
             self.present(toVC!, animated: true, completion: nil)
         })
