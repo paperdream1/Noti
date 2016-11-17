@@ -17,10 +17,12 @@ internal final class Keyword {
     
     init(text: String) {
         self.words = Keyword.preprocess(text)
+        //print()
+        print(self.words)
     }
     
     func execute() -> [String] {
-        filterWords()
+        //filterWords()
         buildGraph()
         return ranking.execute()
             .sorted { $0.1 > $1.1 }
@@ -48,8 +50,8 @@ internal final class Keyword {
 private extension Keyword {
     
     static func preprocess(_ text: String) -> [String] {
-        return text.lowercased()
-            .components(separatedBy: CharacterSet.letters.inverted)
+        //return text.lowercased().components(separatedBy: CharacterSet.letters.inverted)
+        return KorStemmer.stemmer(text: text)
     }
     
     func removeShortWords(_ word: String) -> Bool {

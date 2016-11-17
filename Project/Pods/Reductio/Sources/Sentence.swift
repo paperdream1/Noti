@@ -17,12 +17,14 @@ internal struct Sentence {
         self.text = text
         self.words = Stemmer.stemmingWordsInText(text)
             .filter { !Search.binary(Stopwords, target: $0) }
+        print(self.words)
     }
     
     init(text: String, stopwords: [String] = Stopwords) {
         self.text = text
         self.words = Stemmer.stemmingWordsInText(text)
             .filter { !Search.binary(stopwords, target: $0) }
+        print(self.words)
     }
 }
 
