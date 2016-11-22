@@ -12,7 +12,7 @@ class KorStemmer {
     class func stemmer(text:String) -> [String]
     {
         var stem:[String] = []
-        var jsonObj:[String:[String]]? = nil
+        var jsonObj:[String:AnyObject]? = nil
         
         var request = URLRequest(url: URL(string: "http://52.78.234.14/hyungtaeso")!)
         request.httpMethod = "POST"
@@ -34,7 +34,7 @@ class KorStemmer {
             do{
                 
                 
-                jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String:[String]]
+                jsonObj = try JSONSerialization.jsonObject(with: data, options: []) as! [String:AnyObject]
                 
                 
                 //print(jsonObj)
@@ -52,13 +52,23 @@ class KorStemmer {
         
         while(jsonObj == nil){}
         
-        for phrase in jsonObj!["result"]!
+        /*
+         for phrase in jsonObj?["phrases"] as! [String]
+         {
+         stem.append(contentsOf: phrase.components(separatedBy: " "))
+         }*/
+        
+        var result : [String] = []
+        for w in jsonObj!["stems_with_type"]! as! [[String]]
         {
-            stem.append(contentsOf: phrase.components(separatedBy: " "))
+            if(w[2] == "Noun")
+            {
+                result.append(w[1])
+            }
         }
         
-        print(stem)
+        print(result)
         //return stem
-        return jsonObj!["result"]!
+        return result
     }
 }

@@ -22,7 +22,7 @@ internal final class Keyword {
     }
     
     func execute() -> [String] {
-        //filterWords()
+        filterWords()
         buildGraph()
         return ranking.execute()
             .sorted { $0.1 > $1.1 }
@@ -31,8 +31,8 @@ internal final class Keyword {
     
     func filterWords() {
         self.words = self.words
-            .filter(removeShortWords)
             .filter(removeStopWords)
+        //.filter(removeShortWords)
     }
     
     func buildGraph() {
@@ -59,6 +59,16 @@ private extension Keyword {
     }
     
     func removeStopWords(_ word: String) -> Bool {
-        return !Stopwords.contains(word)
+        let words = word.components(separatedBy: " ")
+        
+        for w in words
+        {
+            if(Stopwords.contains(w))
+            {
+                return false
+            }
+        }
+        
+        return true
     }
 }
