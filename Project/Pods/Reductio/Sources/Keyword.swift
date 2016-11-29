@@ -18,7 +18,7 @@ internal final class Keyword {
     init(text: String) {
         self.words = Keyword.preprocess(text)
         //print()
-        print(self.words)
+        //print(self.words)
     }
     
     func execute() -> [String] {

@@ -22,6 +22,11 @@ public func keywords(from text: String, completion: (([String]) -> Void)) {
     completion(text.keywords)
 }
 
+public func keyPhrase(word : String) -> String
+{
+    return KeyPhrase.pickKeyPhrase(word: word)
+}
+
 /**
  
  Extract first keywords from text sorted by relevance
