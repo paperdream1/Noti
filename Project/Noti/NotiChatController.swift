@@ -40,7 +40,7 @@ class NotiChatController: JSQMessagesViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(self.view.subviews[1])
+        print(self.view.subviews[0])
         self.view.subviews[1].removeFromSuperview()
         
         self.channelRef = FIRDatabase.database().reference().child("channels").child((channel?.id)!)
