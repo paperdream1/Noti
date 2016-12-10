@@ -15,6 +15,7 @@ class ChannelAddController : UIViewController
     
     @IBOutlet weak var channelTextField: UITextField!
     
+    @IBOutlet var aboutTextField: UITextField!
 
     
 }
