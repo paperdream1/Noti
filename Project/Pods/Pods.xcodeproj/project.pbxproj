@@ -98,6 +98,7 @@
 		8E8F23F231215D07D1A22FB1BCD476AE /* JSQMessagesMediaViewBubbleImageMasker.h in Headers */ = {isa = PBXBuildFile; fileRef = 0352F6E4ACF4A98AA90AA7AD29597D6C /* JSQMessagesMediaViewBubbleImageMasker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F8D1EEFFD0AC14C975C78CAD0C9808F /* GTMSessionFetcher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C7FBEC8F3F7BB70D213937CE003F07 /* GTMSessionFetcher-dummy.m */; };
 		910271F61DDD98140072E184 /* KorStemmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910271F41DDD977B0072E184 /* KorStemmer.swift */; };
+		910272031DE414280072E184 /* KeyPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910272011DE414160072E184 /* KeyPhrase.swift */; };
 		91A1CD4E83A73361EB7967B1BBAF5DF3 /* JSQAudioMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5A542D3719C883D3F24D2E53A14017 /* JSQAudioMediaItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		97F46A205EC874345D68CEF89D5EFE93 /* JSQSystemSoundPlayer+JSQMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B26920FFFFF64DA04D498B23FE7201B /* JSQSystemSoundPlayer+JSQMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		991D626EB53A52CA3F4CD908461695CB /* UIDevice+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = C041300F226E24FD0B4AE0A644C0EE69 /* UIDevice+JSQMessages.m */; };
@@ -334,6 +335,7 @@
 		8EA19C5B0434846C626AC08B68AA3439 /* JSQMessagesTypingIndicatorFooterView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSQMessagesTypingIndicatorFooterView.h; path = JSQMessagesViewController/Views/JSQMessagesTypingIndicatorFooterView.h; sourceTree = "<group>"; };
 		8FDCFC3DEC8ED97B0A65CB5794FD1BEC /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSQMessagesViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		910271F41DDD977B0072E184 /* KorStemmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KorStemmer.swift; sourceTree = "<group>"; };
+		910272011DE414160072E184 /* KeyPhrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPhrase.swift; sourceTree = "<group>"; };
 		92FF9A19EDC40C47AA88AAD0787C44DC /* JSQMessagesAssets.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = JSQMessagesAssets.bundle; path = JSQMessagesViewController/Assets/JSQMessagesAssets.bundle; sourceTree = "<group>"; };
 		938E0A46A7FDBC6715717EEF9866A44B /* JSQMessagesCollectionViewCellIncoming.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = JSQMessagesCollectionViewCellIncoming.xib; path = JSQMessagesViewController/Views/JSQMessagesCollectionViewCellIncoming.xib; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -625,6 +627,7 @@
 				0B9AF7A791E3E069546ABE55EAE14B7F /* Summarizer.swift */,
 				223CE65715C68AE7FAF32E34F162E2E6 /* TextRank.swift */,
 				910271F41DDD977B0072E184 /* KorStemmer.swift */,
+				910272011DE414160072E184 /* KeyPhrase.swift */,
 				4C876F08A26767AFA757C973890074D7 /* Support Files */,
 			);
 			path = Reductio;
@@ -1469,6 +1472,7 @@
 				E7F9BBC2BC4B9B23B7B74D1C5D702B0A /* Reductio.swift in Sources */,
 				1CAF0E1E5BD233424394D095E912AA9A /* Search.swift in Sources */,
 				FE20A07E59D59D7F7950F1546F3920BB /* Sentence.swift in Sources */,
+				910272031DE414280072E184 /* KeyPhrase.swift in Sources */,
 				06D0C975F9BB8B5BBD2C320BE1B16438 /* Stemmer.swift in Sources */,
 				E9FC1BA99ACB217FB8702582C6B2D3C3 /* Stopwords.swift in Sources */,
 				364E707487E6C91C723B43338856180E /* Summarizer.swift in Sources */,

@@ -9,6 +9,9 @@
 import Foundation
 
 class KorStemmer {
+    
+    static var phrases : [String] = []
+    
     class func stemmer(text:String) -> [String]
     {
         var stem:[String] = []
@@ -67,7 +70,9 @@ class KorStemmer {
             }
         }
         
-        print(result)
+        KorStemmer.phrases.append(contentsOf: jsonObj?["phrases"] as! [String])
+        
+        //print(result)
         //return stem
         return result
     }

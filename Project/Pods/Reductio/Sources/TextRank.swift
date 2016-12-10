@@ -39,8 +39,6 @@ internal final class TextRank<T: Hashable> {
             stepNodes = iteration(nodes)
         }
         
-        print(stepNodes)
-        
         return nodes
     }
     
