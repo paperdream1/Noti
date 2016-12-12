@@ -86,7 +86,8 @@ class NotiChatController: JSQMessagesViewController{
         
         toVC.originalMessage = self.messages[indexPath.row].text
         
-        self.navigationController?.pushViewController(toVC, animated: true)
+        //self.navigationController?.pushViewController(toVC, animated: true)
+        present(toVC, animated: true, completion: nil)
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {

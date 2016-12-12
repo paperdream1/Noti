@@ -164,7 +164,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaY-V1-Ahl">
                                 <rect key="frame" x="96" y="519" width="184" height="45"/>
@@ -327,7 +327,7 @@
                                 <rect key="frame" x="0.0" y="61" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2oc-f3-s9p" id="31C-gO-8e6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nt-jU-GcM">
@@ -402,23 +402,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2r-Yj-Bmd">
-                                <rect key="frame" x="94" y="104" width="186" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="제 3회 한양대학교 프로그래밍 경시대회" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUY-mF-6Hj">
+                                <rect key="frame" x="16" y="87" width="343" height="30"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="brR-8q-hrJ">
+                                <rect key="frame" x="16" y="252" width="343" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="503237336.76174003">
+                                    <!--2016-12-12 12:08:56 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3N9-Gc-LRN">
+                                <rect key="frame" x="16" y="28" width="47" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="cancel"/>
+                                <connections>
+                                    <action selector="whenCanceled:" destination="ZHk-3K-Bra" eventType="touchUpInside" id="BZA-EW-h7B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnQ-O5-6tf">
+                                <rect key="frame" x="19" y="599" width="336" height="40"/>
+                                <color key="backgroundColor" red="0.96802004419999998" green="0.42624710739999999" blue="0.4331270297" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="yhc-Kn-l61"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="캘린더 등록">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="whenEventCreate:" destination="ZHk-3K-Bra" eventType="touchUpInside" id="LyR-A3-Ozd"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K3e-sU-Cpi">
+                                <rect key="frame" x="16" y="125" width="339" height="134"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="134" id="si0-Mv-Ld6"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="YUY-mF-6Hj" secondAttribute="trailing" id="0T4-zf-Rnv"/>
+                            <constraint firstItem="HnQ-O5-6tf" firstAttribute="leading" secondItem="rot-bN-coc" secondAttribute="leadingMargin" constant="3" id="3dV-Oj-VAn"/>
+                            <constraint firstItem="K3e-sU-Cpi" firstAttribute="top" secondItem="ePG-9H-9BT" secondAttribute="bottom" constant="105" id="CNx-mf-PTo"/>
+                            <constraint firstItem="inE-FB-9PK" firstAttribute="top" secondItem="HnQ-O5-6tf" secondAttribute="bottom" constant="28" id="JfO-kc-kia"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="K3e-sU-Cpi" secondAttribute="leading" id="RVI-aa-xra"/>
+                            <constraint firstItem="brR-8q-hrJ" firstAttribute="top" secondItem="ePG-9H-9BT" secondAttribute="bottom" constant="232" id="adH-SE-Md6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="brR-8q-hrJ" secondAttribute="leading" id="cf1-hx-jem"/>
+                            <constraint firstItem="YUY-mF-6Hj" firstAttribute="top" secondItem="ePG-9H-9BT" secondAttribute="bottom" constant="67" id="kKI-k7-zsQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HnQ-O5-6tf" secondAttribute="trailing" constant="4" id="lMC-9F-Dd5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K3e-sU-Cpi" secondAttribute="trailing" constant="4" id="r7C-Fn-3I0"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="YUY-mF-6Hj" secondAttribute="leading" id="tYU-0T-mz9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="brR-8q-hrJ" secondAttribute="trailing" id="wjm-FM-FzQ"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="titleLabel" destination="r2r-Yj-Bmd" id="Gk3-Gf-mqt"/>
+                        <outlet property="datePicker" destination="brR-8q-hrJ" id="Tgh-dv-OGI"/>
+                        <outlet property="descriptionTextView" destination="K3e-sU-Cpi" id="eOm-C1-e4O"/>
+                        <outlet property="titleLabel" destination="YUY-mF-6Hj" id="Voi-wv-ny9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcg-Nk-3fl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6157.6000000000004" y="89.505247376311857"/>
+            <point key="canvasLocation" x="4248.8000000000002" y="-462.8185907046477"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EFp-ZL-r5a">
@@ -503,7 +556,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3y-mb-eh2" id="Qqn-4L-dUr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhX-xm-2GH">
