@@ -12,6 +12,9 @@ import UIKit
 
 class MyNotiRoomController: UITableViewController {
     
+    
+    @IBOutlet var menuButton: UIBarButtonItem!
+    
     static var rooms : [Channel] = []//[Channel(id: "1", name: "한양대학교")]
     
     private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
@@ -21,6 +24,16 @@ class MyNotiRoomController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            
+            menuButton.target = self.revealViewController()
+            
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
         
         observeChannels()
     }

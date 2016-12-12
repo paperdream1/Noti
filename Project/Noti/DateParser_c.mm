@@ -1,37 +1,48 @@
 //
-//  ContentParser.cpp
+//  DateParser_c.m
 //  Noti
 //
-//  Created by 이채원 on 2016. 10. 19..
+//  Created by 이채원 on 2016. 12. 12..
 //  Copyright © 2016년 이채원. All rights reserved.
 //
-
-#include "ContentParser.hpp"
-#include <iostream>
+/*
+#import <Foundation/Foundation.h>
 #include <vector>
 #include <map>
 #include <math.h>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
 
 using namespace std;
 
 
-ContentParser::ContentParser(string target)
-{
-    this->target = target;
-}
-/*
- string ContentParser::parser()
- {
- 
- }*/
+class Date{
+public:
+    int year;
+    int month;
+    int date;
+    int day;
+    int hour;
+    int minute;
+    
+    Date(){
+        t = time(NULL);
+        datetime = localtime(&t);
+        year = datetime->tm_year + 1900;
+        month = datetime->tm_mon + 1;
+        date = datetime->tm_mday;
+        hour = datetime->tm_hour;
+        minute = datetime->tm_min;
+        day = datetime->tm_wday;//0 = sunday
+    }
+    
+private:
+    struct tm* datetime;
+    time_t t;
+};
 
-
-
-//string replaceAll(const string &str, const string &pattern, const string &replace);
-//string convertNumber(string target);
 
 class Parser
 {
@@ -42,20 +53,19 @@ public:
     
     Parser()
     {
-        /*
-         weightArr.insert(make_pair("화", 15));
-         weightArr.insert(make_pair("수", 15));
-         weightArr.insert(make_pair("목", 15));
-         weightArr.insert(make_pair("금", 15));
-         weightArr.insert(make_pair("토", 15));
-         weightArr.insert(make_pair("월", 15));
-         weightArr.insert(make_pair("일", 10));
-         weightArr.insert(make_pair("/", 8));
-         weightArr.insert(make_pair("다음주", 15));
-         weightArr.insert(make_pair(":", 8));
-         */
+        weightArr.insert(make_pair("화", 5));
+        weightArr.insert(make_pair("수", 5));
+        weightArr.insert(make_pair("목", 5));
+        weightArr.insert(make_pair("금", 5));
+        weightArr.insert(make_pair("토", 5));
+        weightArr.insert(make_pair("월", 5));
+        weightArr.insert(make_pair("/", 5));
+        weightArr.insert(make_pair("다음주", 5));
+        weightArr.insert(make_pair(":", 5));
+        weightArr.insert(make_pair(".", 5));
+        
         weightArr.insert(make_pair("년", 15));
-        weightArr.insert(make_pair("월", 15));
+        weightArr.insert(make_pair("월", 18));
         weightArr.insert(make_pair("일", 10));
         weightArr.insert(make_pair("오늘", 15));
         weightArr.insert(make_pair("저녁", 10));
@@ -65,7 +75,6 @@ public:
         weightArr.insert(make_pair("시", 17));
         weightArr.insert(make_pair("분", 17));
         
-        /******/
         
         num.push_back(make_pair("오십일", "51"));
         num.push_back(make_pair("오십일", "51"));
@@ -145,11 +154,15 @@ public:
         timeTok.insert(make_pair("일", 2));
         timeTok.insert(make_pair("월", 3));
         timeTok.insert(make_pair("년", 4));
+        timeTok.insert(make_pair(".", 5));
+        timeTok.insert(make_pair(":", 6));
+        timeTok.insert(make_pair("-", 7));
+        timeTok.insert(make_pair("/", 8));
+        
     }
     
-    string convertNumber(string &target){
-        
-        
+    string convertNumber(string &target)
+    {
         string result = target;
         
         for(pair<string, string> item : num){
@@ -254,75 +267,22 @@ public:
         
         return weight*exp(menti);
     }
-};
-
-class Date{
-public:
-    int year;
-    int month;
-    int date;
-    int day;
-    int hour;
-    int minute;
     
-    Date(){
-        t = time(NULL);
-        datetime = localtime(&t);
-        year = datetime->tm_year + 1900;
-        month = datetime->tm_mon + 1;
-        date = datetime->tm_mday;
-        hour = datetime->tm_hour;
-        minute = datetime->tm_min;
-        day = datetime->tm_wday;//0 = sunday
-    }
-    
-private:
-    struct tm* datetime;
-    time_t t;
-};
-
-
-class contentParser{
-public:
-    string ContentParser(string target){
-        vector<int> date;
+    string parseDate(vector<string> temp){
+        
+        double *temp1 = computeWeight(temp);
         Date *datetime = new Date();
-        
-        
-        Parser *parser = new Parser();
-        /*
-         string a = "[TOPCIT & 서울어코드 장학 관련 설명회]\
-         \
-         TOPCIT설명회와 함께 서울터모드 장학금 관련 설명회가 진행됩니다! 이번 TOPCIT 정기평가 6회에 신청하신 분들 모두 오셔서 설명들으시면 좋을 것 같고, 신청기한도 설명회 이후 하루이틀정도 늘어날 예정이라고 하니 TOPCIT에 대해 잘 모르셧던 분들 오셔서 설명들으시면 좋을것같네요!\
-         \
-         그리고 서울어코드에서 장학금이 나오는거 알고계셨나요? 전액장학금을 받지 않는 분들은 좋은 기회일것 같은데요 여러분이 생각하는 것보다 장학금의 규모도 큰 편이니 꼭 설명회 오셔서 설명들어보시면 좋을 것 같아요!\
-         \
-         (간식도 제공되는거 알고계시죠?ㅎㅎ)\
-         신청기한이 월요일까지라고 하니 오늘 신청 못하신 분들 서둘러 신청해주세요!!\
-         \
-         설명회 날짜는 28일 저녁 6시 30분입니다.\
-         \
-         IT/BT 508호에서 진행되니 많은 참여 부탁드립니다.";
-         */
-        string convert = parser->convertNumber(target);
-        vector<string> temp = parser->stringTokenizer(convert);
-        /*
-         */
-        
-        //double *temp1 = (double*)malloc(sizeof(double)*temp.size());
-        //temp1 = parser->computeWeight(temp);
-        double *temp1 = parser->computeWeight(temp);
-        
-        
+        vector<int> date;
         
         for(int i=0; i<temp.size(); i++){
             //cout << temp1[i] << " " << temp[i] << endl;
             
-            if(temp1[i] >= 21.0){
+            if(temp1[i] >= 18.0){
                 date.push_back(i);
             }
         }
-        for(pair<string, int> tok : parser->timeTok){
+        
+        for(pair<string, int> tok : timeTok){
             
             for(int i=0; i<date.size(); i++){
                 string::size_type pos = 0;
@@ -331,34 +291,113 @@ public:
                     if(pos >= 2){
                         
                         switch (tok.second) {
-                            case 0:
-                                datetime->minute = temp[date[i]][pos-1] - '0';
-                                if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '9')){
-                                    datetime->minute += (temp[date[i]][pos-2] - '0') * 10;
+                            case 0:{
+                                int minute = temp[date[i]][pos-1] - '0';
+                                if(minute >=0 && minute <=9){
+                                    if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '6')){
+                                        minute += (temp[date[i]][pos-2] - '0') * 10;
+                                    }
+                                    datetime->minute = minute;
+                                } else {
+                                    datetime->minute = 0;
                                 }
                                 break;
-                            case 1:
-                                datetime->hour = temp[date[i]][pos-1] - '0';
-                                if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '9')){
-                                    datetime->hour += (temp[date[i]][pos-2] - '0') * 10;
+                            }
+                            case 1:{
+                                int hour = temp[date[i]][pos-1] - '0';
+                                if(hour >=0 && hour <=9){
+                                    if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '2')){
+                                        hour += (temp[date[i]][pos-2] - '0') * 10;
+                                    }
+                                    datetime->hour = hour;
                                 }
                                 break;
-                            case 2:
-                                datetime->date = temp[date[i]][pos-1] - '0';
-                                if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '9')){
-                                    datetime->date += (temp[date[i]][pos-2] - '0') * 10;
+                            }
+                            case 2:{
+                                int dat = temp[date[i]][pos-1] - '0';
+                                if(dat >=0 && dat <=9){
+                                    if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '3')){
+                                        dat += (temp[date[i]][pos-2] - '0') * 10;
+                                    }
+                                    datetime->date = dat;
                                 }
                                 break;
-                            case 3:
-                                datetime->month = temp[date[i]][pos-1] - '0';
-                                if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '9')){
-                                    datetime->month += (temp[date[i]][pos-2] - '0') * 10;
+                            }
+                            case 3:{
+                                cout << 1 <<endl;
+                                int month = temp[date[i]][pos-1] - '0';
+                                if(month >=0 && month <=9){
+                                    if( temp[date[i]][pos-2] == '1'){
+                                        month += (temp[date[i]][pos-2] - '0') * 10;
+                                    }
+                                    datetime->month = month;
                                 }
                                 break;
+                            }
+                                
+                            case 4:{
+                                int year = temp[date[i]][pos-1] - '0';
+                                if(year >=0 && year <=9){
+                                    if( (temp[date[i]][pos-2] > '0' && temp[date[i]][pos-2] <= '9')){
+                                        year += (temp[date[i]][pos-2] - '0') * 10;
+                                    }
+                                    datetime->year = 2000 + year;
+                                }
+                                break;
+                            }
+                            case 5:
+                            case 7:
+                            case 8:{
+                                int item = (temp[date[i]][pos - 2] - '0') * 10 + (temp[date[i]][pos - 1] - '0');
+                                bool isyear = false;
+                                if(item > 12 && item < 99){
+                                    datetime->year = 2000+ item;
+                                    isyear = true;
+                                } else if(item >= 10 && item <= 12){
+                                    datetime->month = item;
+                                } else if(temp[date[i]][pos - 1] - '0' >= 1 && temp[date[i]][pos - 1] - '0' <= 9){
+                                    datetime->month = temp[date[i]][pos - 1] - '0';
+                                } else{
+                                    break;
+                                }
+                                
+                                int item1 = (temp[date[i]][pos + 1] - '0') * 10 + (temp[date[i]][pos + 2] - '0');
+                                if(temp[date[i]].length() > pos + 2){
+                                    if(item1 > 0 && item1 <= 31){
+                                        if(isyear && item1 >= 1 && item1 <= 12){
+                                            datetime->month = item1;
+                                        } else {
+                                            datetime->date = item1;
+                                        }
+                                    }
+                                } else if(temp[date[i]].length() == pos + 1){
+                                    if(temp[date[i]][pos + 1] > '0' && temp[date[i]][pos + 1] <= '9'){
+                                        if(isyear){
+                                            datetime->month = temp[date[i]][pos + 1];
+                                        } else {
+                                            datetime->date = temp[date[i]][pos + 1];
+                                        }
+                                    }
+                                }
+                                
+                                if(isyear){
+                                    int item2 = (temp[date[i]][pos + 3] - '0') * 10 + (temp[date[i]][pos + 4] - '0');
+                                    if(tok.first.length() > pos + 4){
+                                        if(item2 > 0 && item2 <= 31){
+                                            datetime->date = item2;
+                                        }
+                                    } else if(tok.first.length() == pos + 3){
+                                        if(temp[date[i]][pos + 3] > '0' && temp[date[i]][pos + 3] <= '9'){
+                                            datetime->date = temp[date[i]][pos + 3];
+                                        }
+                                    }
+                                }
+                                break;
+                            }
                                 
                                 
-                            default:
-                                break;
+                                
+                                
                         }
                     } else if(pos  == 1){
                         switch (tok.second) {
@@ -386,13 +425,8 @@ public:
                 }
             }
         }
-        
-        cout << datetime->year << "." << datetime->month << "." << datetime->date << " " << datetime->hour << ":" << datetime->minute << endl;
-        
         string result = "";
-        
-        result.append(to_string(datetime->year)).append(".").append(to_string(datetime->month)).append(".").append(to_string(datetime->date)).append(to_string(datetime->hour)).append(":").append(to_string(datetime->minute));
-        
+        result.append(to_string(datetime->year)).append(".").append(to_string(datetime->month)).append(".").append(to_string(datetime->date)).append(" ").append(to_string(datetime->hour)).append(":").append(to_string(datetime->month));
         return result;
     }
-};
+};*/

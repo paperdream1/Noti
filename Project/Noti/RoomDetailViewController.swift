@@ -57,6 +57,11 @@ class RoomDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let rand = arc4random_uniform(11) + 1;
+        
+        let imageName = String(rand)
+        detailImageView.image = UIImage(named: imageName)
+        
         roomNameLabel.text = channel?.name
         roomInfoLabel.text = channel?.about
     }

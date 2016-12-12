@@ -15,9 +15,19 @@ class LoginViewController: UIViewController {
     //var ref: Firebase?
     @IBOutlet var IDTextField: UITextField!
     @IBOutlet var PWTextField: UITextField!
+    @IBOutlet var loginButton: UIButton!
+    @IBOutlet var signUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.borderWidth = 2
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.cornerRadius = 5
+        signUpButton.layer.borderWidth = 2
+        signUpButton.layer.borderColor = UIColor.white.cgColor
+        signUpButton.layer.cornerRadius = 5
+        
         var ref = FIRDatabase.database().reference()
         
         //ref.child("no").child("assr").setValue(["username": "fuck"])
@@ -38,6 +48,8 @@ class LoginViewController: UIViewController {
             
             print(Reductio.keyPhrase(word:words[0]))
         }
+        
+        //var a = DateParser()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +69,6 @@ class LoginViewController: UIViewController {
             
             //self.performSegue(withIdentifier: "LoginToChat", sender: nil) // 4
         })*/
-        
         FIRAuth.auth()?.signIn(withEmail: IDTextField.text!, password: PWTextField.text!, completion: {(user,error) in
             
             if let err = error { // 3
@@ -66,7 +77,10 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            let toVC = self.storyboard?.instantiateViewController(withIdentifier: "NotiTabbarController")
+            print("user ********")
+            print(user)
+            
+            let toVC = self.storyboard?.instantiateViewController(withIdentifier: "SideBarController")
             
             self.present(toVC!, animated: true, completion: nil)
         })

@@ -16,6 +16,11 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     private var channelRefHandle: FIRDatabaseHandle?
 
     @IBOutlet var notiRoomTableView: UITableView!
+    @IBOutlet var logoImageView: UIImageView!
+    @IBOutlet var noRoomLabel1: UILabel!
+    @IBOutlet var noRoomLabel2: UILabel!
+    
+    @IBOutlet var menuButton: UIBarButtonItem!
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -31,8 +36,20 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     
     override func viewDidLoad() {
         
+        if self.revealViewController() != nil {
+            
+            menuButton.target = self.revealViewController()
+            
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
+        
         observeChannels()
         
+        notiRoomTableView.isScrollEnabled = false
+        notiRoomTableView.backgroundColor = UIColor.white
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -83,7 +100,21 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     /* function for data filter */
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         
-        
+        if(searchText.characters.count > 0 )
+        {
+            self.notiRoomTableView.isScrollEnabled = true
+            self.logoImageView.alpha = 0
+            self.noRoomLabel1.alpha = 0
+            self.noRoomLabel2.alpha = 0
+        }
+        else
+        {
+            self.notiRoomTableView.isScrollEnabled = false
+            
+            self.logoImageView.alpha = 1
+            self.noRoomLabel1.alpha = 1
+            self.noRoomLabel2.alpha = 1
+        }
         
         let tempDB = searchDB.filter { room in
             return room.key.lowercased().contains(searchText.lowercased())
