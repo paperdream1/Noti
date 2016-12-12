@@ -17,5 +17,10 @@ class ChannelAddController : UIViewController
     
     @IBOutlet var aboutTextField: UITextField!
 
+    @IBAction func cancleButton(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
     
 }

@@ -85,6 +85,7 @@ class MyNotiRoomController: UITableViewController {
                 if(channelID.key == currentUser)
                 {
                     
+                    
                     // 각 공지방들을 하나씩 검색
                     for b in channelID.value as! [String]
                     {
@@ -146,11 +147,12 @@ class MyNotiRoomController: UITableViewController {
         
         
         self.rooms.removeAll()
-        observeChannels()
+        //observeChannels()
         
         self.tableView.reloadData()
         
     }
+    
     
     
     
