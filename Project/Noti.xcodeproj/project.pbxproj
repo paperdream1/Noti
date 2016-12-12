@@ -10,6 +10,7 @@
 		3607406E0BC819B469C2AD97 /* Pods_Noti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AD555A283EA585E27402A6 /* Pods_Noti.framework */; };
 		8E20D6281DD1ACAC00E0DBE7 /* ChannelAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E20D6271DD1ACAC00E0DBE7 /* ChannelAddController.swift */; };
 		9104CDBE1DD2F4AE008AF98D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9104CDBD1DD2F4AE008AF98D /* SignUpViewController.swift */; };
+		911E5EDE1DFE39C300DB81A2 /* RoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911E5EDD1DFE39C300DB81A2 /* RoomDetailViewController.swift */; };
 		9156C0F31DD191EC0068EDD5 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156C0F21DD191EC0068EDD5 /* Channel.swift */; };
 		91715CB51DC9B82F0081047C /* MyNotiRoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */; };
 		91715CB71DC9BB590081047C /* NotiChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91715CB61DC9BB590081047C /* NotiChatController.swift */; };
@@ -53,6 +54,7 @@
 		8192B598C20EA3B8AA0DC260 /* Pods-NotiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotiTests/Pods-NotiTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E20D6271DD1ACAC00E0DBE7 /* ChannelAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelAddController.swift; sourceTree = "<group>"; };
 		9104CDBD1DD2F4AE008AF98D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		911E5EDD1DFE39C300DB81A2 /* RoomDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailViewController.swift; sourceTree = "<group>"; };
 		9156C0F21DD191EC0068EDD5 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		91715CB41DC9B82F0081047C /* MyNotiRoomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNotiRoomController.swift; sourceTree = "<group>"; };
 		91715CB61DC9BB590081047C /* NotiChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotiChatController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				8E20D6271DD1ACAC00E0DBE7 /* ChannelAddController.swift */,
 				9104CDBD1DD2F4AE008AF98D /* SignUpViewController.swift */,
 				919422211DEF347700AE4D48 /* NotiRoomSearchViewController.swift */,
+				911E5EDD1DFE39C300DB81A2 /* RoomDetailViewController.swift */,
 			);
 			path = Noti;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911E5EDE1DFE39C300DB81A2 /* RoomDetailViewController.swift in Sources */,
 				91715CB91DCB28FC0081047C /* ParsedMessageViewController.swift in Sources */,
 				9156C0F31DD191EC0068EDD5 /* Channel.swift in Sources */,
 				8E20D6281DD1ACAC00E0DBE7 /* ChannelAddController.swift in Sources */,

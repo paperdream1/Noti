@@ -12,7 +12,7 @@ import UIKit
 
 class MyNotiRoomController: UITableViewController {
     
-    var rooms : [Channel] = []//[Channel(id: "1", name: "한양대학교")]
+    static var rooms : [Channel] = []//[Channel(id: "1", name: "한양대학교")]
     
     private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
     private var channelRefHandle: FIRDatabaseHandle?
@@ -45,12 +45,12 @@ class MyNotiRoomController: UITableViewController {
      }*/
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rooms.count
+        return MyNotiRoomController.rooms.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyNotiRoomCell", for: indexPath) as! MyNotiRoomCell
-        cell.roomLabel.text = rooms[indexPath.row].name
+        cell.roomLabel.text = MyNotiRoomController.rooms[indexPath.row].name
         cell.index = indexPath.row
         
         return cell
@@ -64,7 +64,7 @@ class MyNotiRoomController: UITableViewController {
             let cell = sender as! MyNotiRoomCell
             let toVC = segue.destination as! NotiChatController
             
-            toVC.channel = self.rooms[cell.index!]
+            toVC.channel = MyNotiRoomController.rooms[cell.index!]
         }
     }
     
@@ -101,8 +101,8 @@ class MyNotiRoomController: UITableViewController {
                             {
                                 let channelData = snapshot.value as! Dictionary<String, AnyObject> // 2
                                 let id = snapshot.key
-                                if let name = channelData["name"] as! String!, name.characters.count > 0 { // 3
-                                    self.rooms.append(Channel(id:id,name:name))
+                                if let name = channelData["name"] as! String!,let about = channelData["about"] as! String!, name.characters.count > 0 { // 3
+                                    MyNotiRoomController.rooms.append(Channel(id:id,name:name,about:about))
                                     self.tableView.reloadData()
                                 } else {
                                     print("Error! Could not decode channel data")
@@ -137,7 +137,7 @@ class MyNotiRoomController: UITableViewController {
             newChannelRef.key
         ]
         
-        for room in rooms
+        for room in MyNotiRoomController.rooms
         {
             relationItem.append(room.id)
         }
@@ -146,7 +146,7 @@ class MyNotiRoomController: UITableViewController {
         newRelationRef.setValue(relationItem)
         
         
-        self.rooms.removeAll()
+        MyNotiRoomController.rooms.removeAll()
         //observeChannels()
         
         self.tableView.reloadData()

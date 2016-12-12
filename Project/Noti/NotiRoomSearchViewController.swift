@@ -45,10 +45,7 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
         //searchController.searchBar.frame.origin = CGPoint(x: 0, y: UIApplication.shared.statusBarFrame.height + (self.navigationController?.navigationBar.frame.height)!)
         //self.view.addSubview(searchController.searchBar)
         
-        searchDB["가"] = Channel(id: "가", name: "가")
-        searchDB["가가각다"] = Channel(id: "나", name: "가")
-        searchDB["다"] = Channel(id: "다", name: "가")
-        searchDB["라"] = Channel(id: "라", name: "가")
+        //
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,8 +111,8 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
         channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in // 1
             let channelData = snapshot.value as! Dictionary<String, AnyObject> // 2
             let id = snapshot.key
-            if let name = channelData["name"] as! String!, name.characters.count > 0 { // 3
-                self.searchDB[name] = Channel(id:id,name:name)
+            if let name = channelData["name"] as! String!,let about = channelData["about"] as! String!, name.characters.count > 0 { // 3
+                self.searchDB[name] = Channel(id:id,name:name,about:about)
                 //self.notiRoomTableView.reloadData()
             } else {
                 print("Error! Could not decode channel data")
@@ -126,7 +123,10 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "detailViewSegue")
         {
+            let toVC = segue.destination as! RoomDetailViewController
+            let cell = sender as! NotiRoomSearchViewCell
             
+            toVC.channel = searchDB[cell.resultLabel.text!]
         }
     }
 }

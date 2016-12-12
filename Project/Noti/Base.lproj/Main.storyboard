@@ -239,7 +239,7 @@
                                 <rect key="frame" x="0.0" y="61" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2oc-f3-s9p" id="31C-gO-8e6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWE-oM-rl8">
@@ -402,7 +402,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3y-mb-eh2" id="Qqn-4L-dUr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhX-xm-2GH">
@@ -445,10 +445,10 @@
             </objects>
             <point key="canvasLocation" x="2573.5999999999999" y="207.34632683658174"/>
         </scene>
-        <!--View Controller-->
+        <!--Room Detail View Controller-->
         <scene sceneID="7wL-zP-je6">
             <objects>
-                <viewController id="HPg-Ow-7v6" sceneMemberID="viewController">
+                <viewController id="HPg-Ow-7v6" customClass="RoomDetailViewController" customModule="Noti" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="krL-4q-UuS"/>
                         <viewControllerLayoutGuide type="bottom" id="tn1-7p-nRe"/>
@@ -475,6 +475,9 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQN-Ek-ky8">
                                 <rect key="frame" x="106" y="556" width="159" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="whenJoinButtonClicked:" destination="HPg-Ow-7v6" eventType="touchUpInside" id="fmf-Sq-ovB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -490,6 +493,11 @@
                             <constraint firstItem="RGD-AB-rTK" firstAttribute="leading" secondItem="f9S-4f-kxs" secondAttribute="leadingMargin" constant="19" id="xeu-ka-yWk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="mW7-ev-UEe" id="hKT-xy-EYq"/>
+                        <outlet property="roomInfoLabel" destination="RGD-AB-rTK" id="nDJ-5D-hg0"/>
+                        <outlet property="roomNameLabel" destination="tiu-ZJ-0Dk" id="Vdg-3f-CVX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3J7-ea-kWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
