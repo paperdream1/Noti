@@ -230,20 +230,24 @@
         <scene sceneID="HSr-6p-gvm">
             <objects>
                 <tableViewController autoresizesArchivedViewToFullSize="NO" id="xPy-ql-eGt" customClass="MyNotiRoomController" customModule="Noti" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="61" sectionFooterHeight="28" id="v22-yZ-R1Z">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="61" sectionFooterHeight="28" id="v22-yZ-R1Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyNotiRoomCell" id="2oc-f3-s9p" customClass="MyNotiRoomCell" customModule="Noti" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="61" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyNotiRoomCell" rowHeight="71" id="2oc-f3-s9p" customClass="MyNotiRoomCell" customModule="Noti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="61" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2oc-f3-s9p" id="31C-gO-8e6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nt-jU-GcM">
+                                            <rect key="frame" x="8" y="8" width="57" height="54"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWE-oM-rl8">
-                                            <rect key="frame" x="18" y="11" width="198" height="21"/>
+                                            <rect key="frame" x="79" y="23" width="216" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -252,6 +256,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="roomImageView" destination="7nt-jU-GcM" id="zrc-RF-9eJ"/>
                                     <outlet property="roomLabel" destination="bWE-oM-rl8" id="rRV-p2-XCL"/>
                                     <segue destination="DFv-J4-M2b" kind="show" identifier="MyNotiRoomCellSegue" id="nmP-nK-luK"/>
                                 </connections>
@@ -273,7 +278,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKF-jp-irm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="-493"/>
+            <point key="canvasLocation" x="2573.5999999999999" y="-493.40329835082463"/>
         </scene>
         <!--Noti Chat Controller-->
         <scene sceneID="dgI-xF-grB">
@@ -291,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E6N-VT-eI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3434" y="-493"/>
+            <point key="canvasLocation" x="3391" y="-493"/>
         </scene>
         <!--Parsed Message Controller-->
         <scene sceneID="Gq9-dR-rPN">

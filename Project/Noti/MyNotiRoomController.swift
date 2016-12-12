@@ -71,16 +71,21 @@ class MyNotiRoomController: UITableViewController {
     // MARK: Firebase related methods
     private func observeChannels() {
         
+        MyNotiRoomController.rooms.removeAll()
+        
         relationRefHandle = relationRef.observe(.value, with: {(snapshot) in
             
             // 해당 유저가 가입한 공지방 목록 먼저 참조
             let currentUser = FIRAuth.auth()?.currentUser?.uid
             
-            let relations = snapshot.value as! [String:AnyObject]
+            let relations = snapshot.value as? [String:AnyObject]
             
+            if(relations == nil)
+            {
+                return
+            }
             
-            
-            for channelID in relations
+            for channelID in relations!
             {
                 if(channelID.key == currentUser)
                 {
@@ -101,8 +106,8 @@ class MyNotiRoomController: UITableViewController {
                             {
                                 let channelData = snapshot.value as! Dictionary<String, AnyObject> // 2
                                 let id = snapshot.key
-                                if let name = channelData["name"] as! String!,let about = channelData["about"] as! String!, name.characters.count > 0 { // 3
-                                    MyNotiRoomController.rooms.append(Channel(id:id,name:name,about:about))
+                                if let name = channelData["name"] as! String!,let about = channelData["about"] as! String!,let admin = channelData["admin"] as! String!, name.characters.count > 0 { // 3
+                                    MyNotiRoomController.rooms.append(Channel(id:id,name:name,about:about,admin:admin))
                                     self.tableView.reloadData()
                                 } else {
                                     print("Error! Could not decode channel data")
@@ -130,7 +135,8 @@ class MyNotiRoomController: UITableViewController {
         
         let channelItem = [
             "name": channelName,
-            "about": channelExp
+            "about": channelExp,
+            "admin": currentUser?.uid
         ]
         
         var relationItem = [
@@ -153,20 +159,24 @@ class MyNotiRoomController: UITableViewController {
         
     }
     
-    
-    
-    
-    
-    
 }
 
 class MyNotiRoomCell: UITableViewCell {
     
     @IBOutlet var roomLabel: UILabel!
+    @IBOutlet var roomImageView: UIImageView!
     
     var index : Int?
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let rand = arc4random_uniform(11) + 1;
+        
+        roomImageView.layer.cornerRadius=roomImageView.frame.height/2
+        roomImageView.clipsToBounds=true
+        
+        let imageName = String(rand)
+        roomImageView.image = UIImage(named: imageName)
     }
 }

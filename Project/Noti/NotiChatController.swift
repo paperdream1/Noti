@@ -40,8 +40,12 @@ class NotiChatController: JSQMessagesViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(self.view.subviews[0])
-        self.view.subviews[1].removeFromSuperview()
+        //print(self.view.subviews[0])
+        // 관리자 권한인 공지방이 아닐 때, 메세지를 보낼 수 없음
+        if(channel?.admin != FIRAuth.auth()?.currentUser?.uid)
+        {
+            self.view.subviews[1].removeFromSuperview()
+        }
         
         self.channelRef = FIRDatabase.database().reference().child("channels").child((channel?.id)!)
         self.messageRef = self.channelRef.child("messages")
@@ -56,13 +60,13 @@ class NotiChatController: JSQMessagesViewController{
         super.viewDidAppear(animated)
         
         /*
-        // messages from someone else
-        addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")
-        // messages sent from local sender
-        addMessage(withId: senderId, name: "Me", text: "I bet I can run faster than you!")
-        addMessage(withId: senderId, name: "Me", text: "I like to run!")
-        // animates the receiving of a new message on the view
-        finishReceivingMessage()*/
+         // messages from someone else
+         addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")
+         // messages sent from local sender
+         addMessage(withId: senderId, name: "Me", text: "I bet I can run faster than you!")
+         addMessage(withId: senderId, name: "Me", text: "I like to run!")
+         // animates the receiving of a new message on the view
+         finishReceivingMessage()*/
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -86,18 +90,18 @@ class NotiChatController: JSQMessagesViewController{
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let message = messages[indexPath.item] // 1
-        if message.senderId == senderId { // 2
-            return outgoingBubbleImageView
-        } else { // 3
-            return incomingBubbleImageView
-        }
+        //let message = messages[indexPath.item] // 1
+        //if message.senderId == senderId { // 2
+        //  return outgoingBubbleImageView
+        //} else { // 3
+        return incomingBubbleImageView
+        //}
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         let itemRef = messageRef.childByAutoId() // 1
         let messageItem = [ // 2
-            "senderId": senderId!,
+            "senderId": "noway",
             "senderName": senderDisplayName!,
             "text": text!,
             ]

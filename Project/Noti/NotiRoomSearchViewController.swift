@@ -20,7 +20,7 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     let searchController = UISearchController(searchResultsController: nil)
     
     var searchDB : [String:Channel] = [:]
-    var filteredDB : [String:Channel] = [:]
+    //var filteredDB : [String:Channel] = [:]
     var filteredDBKeys : [String] = []
     
     deinit {
@@ -32,6 +32,7 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     override func viewDidLoad() {
         
         observeChannels()
+        
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -51,7 +52,7 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredDB.count
+            return filteredDBKeys.count
         }
         
         return 0
@@ -89,10 +90,10 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
             }
         
         self.filteredDBKeys.removeAll()
-        self.filteredDB.removeAll()
+        //self.filteredDB.removeAll()
         for text in tempDB
         {
-            self.filteredDB[text.key] = text.value
+            //self.filteredDB[text.key] = text.value
             self.filteredDBKeys.append(text.key)
         }
         
@@ -108,11 +109,14 @@ class NotiRoomSearchViewController: UIViewController,UITableViewDelegate,UITable
     private func observeChannels() {
         // Use the observe method to listen for new
         // channels being written to the Firebase DB
+        
+        self.searchDB.removeAll()
+        
         channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in // 1
             let channelData = snapshot.value as! Dictionary<String, AnyObject> // 2
             let id = snapshot.key
-            if let name = channelData["name"] as! String!,let about = channelData["about"] as! String!, name.characters.count > 0 { // 3
-                self.searchDB[name] = Channel(id:id,name:name,about:about)
+            if let name = channelData["name"] as! String!,let about = channelData["about"] as! String!,let admin = channelData["admin"] as! String!, name.characters.count > 0 { // 3
+                self.searchDB[name] = Channel(id:id,name:name,about:about,admin:admin)
                 //self.notiRoomTableView.reloadData()
             } else {
                 print("Error! Could not decode channel data")

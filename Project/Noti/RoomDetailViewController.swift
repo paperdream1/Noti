@@ -34,10 +34,24 @@ class RoomDetailViewController: UIViewController {
         
         for room in MyNotiRoomController.rooms
         {
+            if(channel?.id == room.id)
+            {
+                let alertView = UIAlertController(title: "이미 가입된 공지방입니다", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                alertView.addAction(alertAction)
+                self.present(alertView, animated: true, completion: nil)
+                
+                return
+            }
             relationItem.append(room.id)
         }
         
         newRelationRef.setValue(relationItem)
+        
+        let alertView = UIAlertController(title: "공지방에 가입되었습니다", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alertView.addAction(alertAction)
+        self.present(alertView, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
